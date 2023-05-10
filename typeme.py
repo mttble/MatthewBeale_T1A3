@@ -79,7 +79,7 @@ class Typeme:
 
     @property
     def speed(self):
-        elapsed_time = time.time() - self.start_time
+        elapsed_time = time.time() - self.start_time - 3 #take 3 seconds off for the countdown timer
         words_typed = len(self.sample_text.split())
         wpm = (words_typed / elapsed_time) * 60
         return wpm
