@@ -35,7 +35,6 @@ class Typeme:
                         print("Exiting now...")
                         exit()
                     elif user_input == "":
-                        self.texts = open("texts.txt", "r").read().split("\n")
                         self.reset()
                         break
 
@@ -47,9 +46,7 @@ class Typeme:
                     if user_input.lower() == "exit":
                         print("Exiting now...")
                         exit()
-                    elif user_input == "":
-                        self.texts = open("texts.txt", "r").read().split("\n")
-                        self.reset()
+                    elif user_input == "":     
                         break
 
 
@@ -60,7 +57,7 @@ class Typeme:
         self.chars_typed = 0
 
     def save_results(self):
-        with open("results.txt", "a") as f:
+        with open("results.txt", "a") as f: #"a" for append so it doesn't overwrite scores but instead adds new line to write to.
             f.write(f"Speed: {self.speed:.2f} WPM\n")
 
     def get_average_wpm(self):
