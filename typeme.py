@@ -53,7 +53,6 @@ class Typeme:
                 return "No results found."
 
 
-
     @property
     def speed(self):
         elapsed_time = time.time() - self.start_time
