@@ -1,0 +1,4 @@
+WPM = Words per minute
+Results:
+
+Speed: 72.49 WPM
