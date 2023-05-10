@@ -18,3 +18,8 @@ Speed: 34.41 WPM
 Speed: 57.90 WPM
 Speed: 79.38 WPM
 Speed: 75.71 WPM
+Speed: 23.25 WPM
+Speed: 25.30 WPM
+Speed: 26.39 WPM
+Speed: 26.15 WPM
+Speed: 25.53 WPM

@@ -10,6 +10,13 @@ class Typeme:
         self.reset()
 
         while self.running:
+            
+            countdown_time = 3
+            print(f"Starting in {countdown_time} seconds...")
+            for i in range (countdown_time, 0, -1):
+                print(f"{i}...")
+                time.sleep(1)
+
             print()  
             print(self.color_text(self.sample_text, "yellow")) #prints random sentence
             print()  
