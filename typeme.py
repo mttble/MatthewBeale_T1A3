@@ -29,6 +29,7 @@ class Typeme:
                 input("Press Enter to start the typing speed test...")
                 self.reset()
 
+
     def reset(self):
         self.sample_text = random.choice(self.texts)
         self.running = True
@@ -74,6 +75,5 @@ class Typeme:
         end_color = '\033[0m'
         return f"{colors[color]}{text}{end_color}"
 
-
-
+    
 Typeme()
