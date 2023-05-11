@@ -1,8 +1,5 @@
 wpm = words per minute
 results:
 
-
-
-Speed: 60.18 WPM
-Speed: 80.93 WPM
-Speed: 84.92 WPM
+Speed: 85.96 WPM
+Speed: 113.28 WPM
