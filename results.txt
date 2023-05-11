@@ -3,3 +3,4 @@ results:
 
 Speed: 85.96 WPM
 Speed: 113.28 WPM
+Speed: 48.40 WPM
