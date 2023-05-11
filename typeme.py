@@ -1,11 +1,11 @@
 import time
 import random
-
+from colr import color # to install run "python3 -m pip install -r requirements.txt" or "pip install colr"
 
 class Typeme:
 
     def __init__(self):
-        input("Press Enter to start Typeme!!!")
+        input(color("Press Enter to start Typeme!!!", fore='purple', style = 'bright'))
         self.texts = open("texts.txt", "r").read().split("\n")
         self.reset()
 
@@ -18,7 +18,7 @@ class Typeme:
                 time.sleep(1)
 
             print()  
-            print(self.color_text(self.sample_text, "yellow")) #prints random sentence
+            print(color(self.sample_text, fore='yellow')) #prints random sentence
             print()  
             user_input = input("Type the above text: ")
 
@@ -26,8 +26,8 @@ class Typeme:
             if user_input == self.sample_text:
                 self.running = False
                 self.save_results()
-                print(f"{self.color_text('Correct! Your typing speed: {:.2f} Words per minute'.format(self.speed), 'green')}")
-                print(f"{self.color_text(self.get_average_wpm(), 'blue')}")
+                print(f"{color('Correct! Your typing speed: {:.2f} Words per minute'.format(self.speed), fore ='green', style = 'bright')}")
+                print(f"{color(self.get_average_wpm(), fore ='blue', style = 'bright')}")
                 while True:
                     # need to allow user to exit application
                     user_input = input("Press Enter to start or type 'exit' to quit...")
@@ -40,7 +40,7 @@ class Typeme:
 
             else:
                 # not very DRY but need to be able to exit in both scenarios
-                print(f"{self.color_text('Incorrect. Try again.', 'red')}")
+                print(f"{color('Incorrect. Try again.', fore='red', style='bright')}")
                 while True:
                     user_input = input("Press Enter to start or type 'exit' to quit...")
                     if user_input.lower() == "exit":
@@ -81,16 +81,6 @@ class Typeme:
         wpm = (words_typed / elapsed_time) * 60
         return wpm
 
-    def color_text(self, text, color='white'):
-        colors = {
-            'red': '\033[31m',
-            'green': '\033[32m',
-            'yellow': '\033[33m',
-            'blue': '\033[34m',
-        }
-        end_color = '\033[0m'
-        return f"{colors[color]}{text}{end_color}"
-    
     def exit():
         return
 
