@@ -9,15 +9,7 @@ class Typeme:
     def __init__ (self):
         input(color("Press Enter to start Typeme!!!", fore = 'purple', style = 'bright'))
         
-        self.texts = []
-        self.difficulty = ""
-        self.running = True
-        self.sample_text = ""
-        self.start_time = None
-
-        self.difficulty_selected = False
-
-        self.reset()
+        self.start()
 
 
         while self.running:
@@ -46,14 +38,12 @@ class Typeme:
                 print(f"{color(self.get_average_wpm(), fore = 'blue', style = 'bright')}")
                 while True:
                         if self.get_user_input():  # applied DRY
-                            self.reset()
+                            self.start()
                             break
 
             else:
                 print(f"{color('Incorrect. Try again.', fore = 'red', style = 'bright')}")
-                while True:
-                    if self.get_user_input(): 
-                        break
+                self.start()
     
     def select_difficulty(self):
         while self.difficulty not in ["e", "m", "h"]:
@@ -87,7 +77,7 @@ class Typeme:
             elif user_input == "":
                 return True  # proceeds with the next steps of the program
 
-    def reset(self):
+    def start(self):
         self.difficulty = ""
         self.select_difficulty()
         self.load_texts()
