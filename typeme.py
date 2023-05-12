@@ -14,7 +14,7 @@ class Typeme:
 
         while self.running:
 
-            if not self.difficulty_selected:  # added check to see if difficulty has been selected
+            if not self.select_difficulty:  # added check to see if difficulty has been selected
                 self.select_difficulty()
                 self.difficulty_selected = True
             
@@ -37,7 +37,6 @@ class Typeme:
                 print(color(f"Correct! Your typing speed: {self.speed:.2f} Words per minute", fore = 'green', style = 'bright'))
                 print(f"{color(self.get_average_wpm(), fore = 'blue', style = 'bright')}")
                 while True:
-                        if self.get_user_input():  # applied DRY
                             self.start()
                             break
 
@@ -46,20 +45,19 @@ class Typeme:
                 self.start()
     
     def select_difficulty(self):
-        while self.difficulty not in ["e", "m", "h"]:
-            self.difficulty = input(color("Select difficulty level type e,m or h for easy, medium, hard: ", fore = 'pink')).lower()
-        if self.difficulty == "e":
-            self.difficulty = "easy"
-        elif self.difficulty == "m":
-            self.difficulty = "medium"
-        else:
-            self.difficulty = "hard"
-        self.difficulty_selected = True
-
-    def start_game(self):
-        self.select_difficulty()  # moved select_difficulty method call here
-        print(f"Starting game with difficulty level {self.difficulty}...")
-        self.load_texts()
+        while True: 
+            while self.difficulty not in ["e", "m", "h", "exit"]:
+                self.difficulty = input(color("Select difficulty level type 'e','m' or 'h' for easy, medium, hard or 'exit' to quit: ", fore = 'pink')).lower()
+            if self.difficulty == "e":
+                self.difficulty = "easy"
+            elif self.difficulty == "m":
+                self.difficulty = "medium"
+            elif self.difficulty == "h":
+                self.difficulty = "hard"
+            else:
+                print("Exiting now...")
+                exit()
+            return True
 
     def load_texts(self):
         try:
@@ -68,14 +66,7 @@ class Typeme:
         except FileNotFoundError:
             print(f"Error: texts{self.difficulty}.txt not found.")
 
-    def get_user_input(self):
-        while True:
-            user_input = input("Press Enter to start or type 'exit' to quit... ")
-            if user_input.lower() == "exit":
-                print("Exiting now...")
-                exit()
-            elif user_input == "":
-                return True  # proceeds with the next steps of the program
+    
 
     def start(self):
         self.difficulty = ""
@@ -88,14 +79,14 @@ class Typeme:
 
     def save_results(self):
         with open("results.txt", "a") as f:  # "a" for append so it doesn't overwrite scores but instead adds new line to write to.
-            f.write(f"Speed: {self.speed:.2f} WPM\n")
+            f.write(f"Difficulty: {self.difficulty.capitalize()} | Speed: {self.speed:.2f} WPM\n")
 
     def get_average_wpm(self):
         with open("results.txt", "r") as f:
             speeds = []
             for line in f:
-                if line.startswith("Speed:"):
-                    speed = float(line.split(":")[1].split("WPM")[0].strip())  # extract the numbers
+                if line.startswith("Difficulty:"):
+                    speed = float(line.split("| Speed:")[1].split("WPM")[0].strip())  # extract the numbers
                     speeds.append(speed)
             if speeds:
                 average_speed = sum(speeds) / len(speeds)  # add all speed then divides them by the indexed lengths of all the speeds
