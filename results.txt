@@ -1,12 +1,26 @@
 wpm = words per minute
 results:
 
-Speed: 85.96 WPM
-Speed: 113.28 WPM
-Speed: 48.40 WPM
-Speed: 49.64 WPM
-Speed: 48.43 WPM
-Speed: 38.91 WPM
-Speed: 12.59 WPM
-Speed: 52.93 WPM
-Speed: 46.26 WPM
+Speed: 63.36 WPM
+Speed: 46.10 WPM
+Speed: 48.71 WPM
+Speed: 63.14 WPM
+Speed: 29.89 WPM
+Speed: 45.66 WPM
+Speed: 28.80 WPM
+Speed: 12.91 WPM
+Speed: 56.07 WPM
+Speed: 53.81 WPM
+Speed: 80.03 WPM
+Speed: 52.19 WPM
+Speed: 41.49 WPM
+Speed: 11.40 WPM
+Speed: 74.69 WPM
+Speed: 66.32 WPM
+Speed: 80.03 WPM
+Speed: 46.65 WPM
+Speed: 74.02 WPM
+Speed: 71.09 WPM
+Speed: 70.40 WPM
+Speed: 83.87 WPM
+Speed: 76.22 WPM

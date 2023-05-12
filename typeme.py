@@ -8,19 +8,23 @@ class Typeme:
 
     def __init__ (self):
         input(color("Press Enter to start Typeme!!!", fore = 'purple', style = 'bright'))
-        self.easy_text = open("textseasy.txt", "r").read().split("\n")
-        self.medium_text = open("textsmedium.txt", "r").read().split("\n")
-        self.hard_text = open("textshard.txt", "r").read().split("\n")
-        self.reset()  # calls the reset function which 
-
+        
         self.texts = []
         self.difficulty = ""
+        self.running = True
+        self.sample_text = ""
+        self.start_time = None
 
-        self.select_difficulty()
-        self.load_texts()
+        self.difficulty_selected = False
+
         self.reset()
 
+
         while self.running:
+
+            if not self.difficulty_selected:  # added check to see if difficulty has been selected
+                self.select_difficulty()
+                self.difficulty_selected = True
             
             # Countdown timer
             countdown_time = 3
@@ -35,7 +39,7 @@ class Typeme:
             user_input = input("Type the above text: ")
 
 
-            if user_input == self.sample_text:
+            if user_input == self.sample_text.strip():
                 self.running = False  # stops while loop
                 self.save_results()  # calls save results function
                 print(color(f"Correct! Your typing speed: {self.speed:.2f} Words per minute", fore = 'green', style = 'bright'))
@@ -46,15 +50,26 @@ class Typeme:
                             break
 
             else:
-                # not very DRY but need to be able to exit in both scenarios
                 print(f"{color('Incorrect. Try again.', fore = 'red', style = 'bright')}")
                 while True:
                     if self.get_user_input(): 
                         break
     
     def select_difficulty(self):
-        while self.difficulty not in ["easy", "medium", "hard"]:
-            self.difficulty = input("Select difficulty level (easy/medium/hard): ").lower()
+        while self.difficulty not in ["e", "m", "h"]:
+            self.difficulty = input(color("Select difficulty level type e,m or h for easy, medium, hard: ", fore = 'pink')).lower()
+        if self.difficulty == "e":
+            self.difficulty = "easy"
+        elif self.difficulty == "m":
+            self.difficulty = "medium"
+        else:
+            self.difficulty = "hard"
+        self.difficulty_selected = True
+
+    def start_game(self):
+        self.select_difficulty()  # moved select_difficulty method call here
+        print(f"Starting game with difficulty level {self.difficulty}...")
+        self.load_texts()
 
     def load_texts(self):
         try:
@@ -73,17 +88,9 @@ class Typeme:
                 return True  # proceeds with the next steps of the program
 
     def reset(self):
-        self.difficulty = input("Select difficulty level (easy, medium, hard): ")
-        if self.difficulty.lower() == 'easy':
-            self.texts = open("textseasy.txt", "r").read().split("\n")
-        elif self.difficulty.lower() == 'medium':
-            self.texts = open("textsmedium.txt", "r").read().split("\n")
-        elif self.difficulty.lower() == 'hard':
-            self.texts = open("textshard.txt", "r").read().split("\n")
-        else:
-            print("Invalid difficulty level selected. Please try again.")
-            self.reset()
-            return
+        self.difficulty = ""
+        self.select_difficulty()
+        self.load_texts()
         self.sample_text = random.choice(self.texts)
         self.running = True
         self.start_time = time.time()
@@ -113,10 +120,6 @@ class Typeme:
         words_typed = len(self.sample_text.split())
         wpm = (words_typed / elapsed_time) * 60
         return wpm  # returns calculated wpm to 
-
-    def exit():
-        return
-    
 
     
 Typeme()
