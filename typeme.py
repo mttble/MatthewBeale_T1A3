@@ -8,8 +8,17 @@ class Typeme:
 
     def __init__ (self):
         input(color("Press Enter to start Typeme!!!", fore = 'purple', style = 'bright'))
-        self.texts = open("texts.txt", "r").read().split("\n")  # simplify reading text document
+        self.easy_text = open("textseasy.txt", "r").read().split("\n")
+        self.medium_text = open("textsmedium.txt", "r").read().split("\n")
+        self.hard_text = open("textshard.txt", "r").read().split("\n")
         self.reset()  # calls the reset function which 
+
+        self.texts = []
+        self.difficulty = ""
+
+        self.select_difficulty()
+        self.load_texts()
+        self.reset()
 
         while self.running:
             
@@ -43,6 +52,17 @@ class Typeme:
                     if self.get_user_input(): 
                         break
     
+    def select_difficulty(self):
+        while self.difficulty not in ["easy", "medium", "hard"]:
+            self.difficulty = input("Select difficulty level (easy/medium/hard): ").lower()
+
+    def load_texts(self):
+        try:
+            with open(f"texts{self.difficulty}.txt", "r") as f:
+                self.texts = f.readlines()
+        except FileNotFoundError:
+            print(f"Error: texts{self.difficulty}.txt not found.")
+
     def get_user_input(self):
         while True:
             user_input = input("Press Enter to start or type 'exit' to quit... ")
@@ -53,9 +73,20 @@ class Typeme:
                 return True  # proceeds with the next steps of the program
 
     def reset(self):
+        self.difficulty = input("Select difficulty level (easy, medium, hard): ")
+        if self.difficulty.lower() == 'easy':
+            self.texts = open("textseasy.txt", "r").read().split("\n")
+        elif self.difficulty.lower() == 'medium':
+            self.texts = open("textsmedium.txt", "r").read().split("\n")
+        elif self.difficulty.lower() == 'hard':
+            self.texts = open("textshard.txt", "r").read().split("\n")
+        else:
+            print("Invalid difficulty level selected. Please try again.")
+            self.reset()
+            return
         self.sample_text = random.choice(self.texts)
-        self.running = True  # initiates the while loop
-        self.start_time = time.time()  # sets current time for self.start_time
+        self.running = True
+        self.start_time = time.time()
         
 
     def save_results(self):
@@ -85,6 +116,7 @@ class Typeme:
 
     def exit():
         return
+    
 
     
 Typeme()

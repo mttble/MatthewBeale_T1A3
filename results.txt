@@ -4,3 +4,9 @@ results:
 Speed: 85.96 WPM
 Speed: 113.28 WPM
 Speed: 48.40 WPM
+Speed: 49.64 WPM
+Speed: 48.43 WPM
+Speed: 38.91 WPM
+Speed: 12.59 WPM
+Speed: 52.93 WPM
+Speed: 46.26 WPM
