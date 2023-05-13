@@ -24,10 +24,11 @@ class Typeme:
             for i in range (countdown_time, 0, -1):
                 print(f"{i}...")
                 time.sleep(1)
-
-            print()  
+            
+            print()
             print(color(self.sample_text, fore='yellow'))  # prints random sentence
-            print()  
+            print()
+            
             user_input = input("Type the above text: ")
 
 
