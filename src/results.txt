@@ -1,0 +1,4 @@
+wpm = words per minute
+results:
+
+Difficulty: Easy | Speed: 82.44 WPM
