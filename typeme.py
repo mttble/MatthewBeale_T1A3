@@ -11,9 +11,7 @@ class Typeme:
         
         self.start()
 
-
         while self.running:
-
             if not self.select_difficulty:  # added check to see if difficulty has been selected
                 self.select_difficulty()
                 self.difficulty_selected = True
@@ -30,7 +28,6 @@ class Typeme:
             print()
             
             user_input = input("Type the above text: ")
-
 
             if user_input == self.sample_text.strip():
                 self.running = False  # stops while loop
@@ -67,8 +64,6 @@ class Typeme:
         except FileNotFoundError:
             print(f"Error: texts{self.difficulty}.txt not found.")
 
-    
-
     def start(self):
         self.difficulty = ""
         self.select_difficulty()
@@ -77,7 +72,6 @@ class Typeme:
         self.running = True
         self.start_time = time.time()
         
-
     def save_results(self):
         with open("results.txt", "a") as f:  # "a" for append so it doesn't overwrite scores but instead adds new line to write to.
             f.write(f"Difficulty: {self.difficulty.capitalize()} | Speed: {self.speed:.2f} WPM\n")
@@ -95,7 +89,6 @@ class Typeme:
             else:
                 return "No results found."
 
-
     @property  # getter method for the speed attribute
     def speed(self):
         elapsed_time = time.time() - self.start_time - 3  # take 3 seconds off for the countdown timer
@@ -103,5 +96,4 @@ class Typeme:
         wpm = (words_typed / elapsed_time) * 60
         return wpm  # returns calculated wpm to 
 
-    
 Typeme()
