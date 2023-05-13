@@ -44,6 +44,7 @@ class Typeme:
     
     def select_difficulty(self):
         while True: 
+            # error handling loop continues until valid option is selected
             while self.difficulty not in ["e", "m", "h", "exit"]:
                 self.difficulty = input(color("Select difficulty level type 'e','m' or 'h' for easy, medium, hard or 'exit' to quit: ", fore = 'pink')).lower()
             if self.difficulty == "e":
@@ -58,6 +59,7 @@ class Typeme:
             return True
 
     def load_texts(self):
+        #error handling try and except to catch if file is not found
         try:
             with open(f"texts{self.difficulty}.txt", "r") as f:
                 self.texts = f.readlines()
@@ -87,7 +89,7 @@ class Typeme:
                 average_speed = sum(speeds) / len(speeds)  # add all speed then divides them by the indexed lengths of all the speeds
                 return f"Average speed: {average_speed:.2f} WPM"
             else:
-                return "No results found."
+                return "No results found."  # error handling if no results found instead of causing an error due to division by zero
 
     @property  # getter method for the speed attribute
     def speed(self):
