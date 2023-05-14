@@ -1,6 +1,11 @@
 # MatthewBeale_T1A3
 
-
+## [Video presentation link](https://youtu.be/ITBKicN6GPI)
+## [Link to HELP.md](./docs/HELP.md)
+## [Trello board for planning link](https://trello.com/invite/b/b3asaOTU/ATTIc532aec15c1c801228a3fbe6a4613b3aE42B3925/terminal-application)
+## [Github Repo](https://github.com/mttble/MatthewBeale_T1A3)
+## Manual Test Plan located in: ./docs/MatthewBeale_T1A3testplan.xlsx
+## Powerpoint presentation located in: ./ppt/MatthewBeale_T1A3.pptx
 
 ## R1: 
 ## <span style="color:green">Answer all documentation requirements below.</span>
@@ -60,6 +65,7 @@ The features in my terminal application that i have been working on are:
 
 > <span style="color:green"> Your checklists for each feature should have at least 5 items.
 
+![Trello Board](docs/trelloboard.jpg)
 Trello Board link: https://trello.com/invite/b/b3asaOTU/ATTIc532aec15c1c801228a3fbe6a4613b3aE42B3925/terminal-application
 
 ## R8:
@@ -71,7 +77,8 @@ Trello Board link: https://trello.com/invite/b/b3asaOTU/ATTIc532aec15c1c801228a3
 - <span style="color:green"> any system/hardware requirements
 - <span style="color:green"> how to use any command line arguments made for the application
 
-Help documentation located in HELP.md in root directory.
+Help documentation located in HELP.md in docs directory.
+## [Link to HELP.md](./docs/HELP.md)
 
 # Slide deck
 
@@ -80,6 +87,9 @@ Help documentation located in HELP.md in root directory.
 
 ## R10: An overview of your code.
 ### 	<span style="color:green"> An explanation of the important parts of your code, including any crucial application logic
+
+## Powerpoint presentation located in: ./ppt/MatthewBeale_T1A3.pptx
+
 
 # Code Requirements
 
@@ -111,13 +121,20 @@ Help documentation located in HELP.md in root directory.
 - <span style="color:green">provide at least TWO test cases and the expected results for each test case
 
 > <span style="color:green">An outline of the testing procedure and cases should be included with the source code of the application
+![Trello Board](docs/testplan1.jpg)
+![Trello Board](docs/testplan2.jpg)
+## Manual Test Plan located in: ./docs/MatthewBeale_T1A3testplan.xlsx
+
 
 ## R16:
 <span style="color:green">Utilise source control throughout the development of the application by:
 - <span style="color:green">making regular commits (at least 20 commits) with a commit message that summarises the changes
 - <span style="color:green">pushing all commits to a remote repository
 
+## [Github Repo](https://github.com/mttble/MatthewBeale_T1A3)
+
 ## R17:
 <span style="color:green">Utilise developer tools to facilitate the execution of the application:
 For example,
 - <span style="color:green">writing a script which turns the application into an executable
+## [Bash Script](./src/typethis.sh)
