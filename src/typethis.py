@@ -4,10 +4,10 @@ from colr import color  # to install run "python3 -m pip install -r requirements
 
 # PEP 8 styling guide 
 
-class Typeme:
+class Typethis:
 
     def __init__ (self):
-        input(color("Press Enter to start Typeme!!!", fore = 'purple', style = 'bright'))
+        input(color("Press Enter to start Typethis!!!", fore = 'purple', style = 'bright'))
         
         self.start()
 
@@ -98,4 +98,4 @@ class Typeme:
         wpm = (words_typed / elapsed_time) * 60
         return wpm  # returns calculated wpm to 
 
-Typeme()
+Typethis()

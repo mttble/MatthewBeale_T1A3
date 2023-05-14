@@ -1,3 +1,2 @@
 wpm = words per minute
 results:
-
